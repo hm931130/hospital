@@ -1,5 +1,7 @@
 package com.hm.hdm.entity;
 
+import java.util.Date;
+
 /**
  * @program: hospital-manager
  * @Date: 2019/6/24 15:56
@@ -11,9 +13,9 @@ public class Category {
 
  private String name;
 
- private String createTime;
+ private Date createTime;
 
- private String updateTime;
+ private Date updateTime;
 
  public int getId() {
   return id;
@@ -31,19 +33,19 @@ public class Category {
   this.name = name;
  }
 
- public String getCreateTime() {
+ public Date getCreateTime() {
   return createTime;
  }
 
- public void setCreateTime(String createTime) {
+ public void setCreateTime(Date createTime) {
   this.createTime = createTime;
  }
 
- public String getUpdateTime() {
+ public Date getUpdateTime() {
   return updateTime;
  }
 
- public void setUpdateTime(String updateTime) {
+ public void setUpdateTime(Date updateTime) {
   this.updateTime = updateTime;
  }
 }

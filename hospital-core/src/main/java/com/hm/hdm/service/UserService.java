@@ -11,6 +11,12 @@ import com.hm.hdm.entity.User;
 public interface UserService {
 
 
+ /**
+  * 通过用户名和密码登录
+  * @param name
+  * @param password
+  * @return
+  */
  User login(String name, String password);
 
 }
