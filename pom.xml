@@ -11,6 +11,7 @@
     <modules>
         <module>hospital-core</module>
         <module>hospital-manage</module>
+        <module>hospital-front</module>
     </modules>
 
     <properties>
@@ -20,6 +21,7 @@
 
     <dependencies>
 
+        <!--        引入servlet、jsp-->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>

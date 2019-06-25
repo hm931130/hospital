@@ -28,9 +28,26 @@ public class SelfController {
   request.getRequestDispatcher("login.html").forward(request, response);
  }
 
+ /**
+  * 后台主页
+  *
+  * @param request
+  * @param response
+  * @throws ServletException
+  * @throws IOException
+  */
  public void main(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
   response.sendRedirect("category/list.do");
  }
+
+ /**
+  * 登陆
+  *
+  * @param request
+  * @param response
+  * @throws ServletException
+  * @throws IOException
+  */
 
  public void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -51,6 +68,14 @@ public class SelfController {
 
  }
 
+ /**
+  * 登出
+  *
+  * @param request
+  * @param response
+  * @throws ServletException
+  * @throws IOException
+  */
  public void logout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
   HttpSession session = request.getSession();
   session.setAttribute("USER", null);

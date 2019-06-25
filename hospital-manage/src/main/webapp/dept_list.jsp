@@ -54,8 +54,8 @@
                     <td><fmt:formatDate value="${dept.createTime}" pattern="yyyy-MM-dd hh:mm"/></td>
                     <td><fmt:formatDate value="${dept.updateTime}" pattern="yyyy-MM-dd hh:mm"/></td>
                     <td>
-                        <a href="toEdit.do?id=${dept.id}">修改</a>&nbsp;&nbsp;
-                        <a href="delete.do?id=${dept.id}">删除</a>
+                        <a href="toEdit.do?id=${dept.id}&cid=${COBJ.id}">修改</a>&nbsp;&nbsp;
+                        <a href="delete.do?id=${dept.id}&cid=${COBJ.id}">删除</a>
 
                     </td>
                 </tr>

@@ -23,7 +23,7 @@ public class CategoryController {
  private CategoryService categoryService;
 
  /**
-  * 科室列表
+  * 科室分类列表
   *
   * @param request
   * @param response
@@ -45,6 +45,14 @@ public class CategoryController {
  }
 
 
+ /**
+  * 科室分类编辑
+  *
+  * @param request
+  * @param response
+  * @throws ServletException
+  * @throws IOException
+  */
  public void edit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
   int id = Integer.parseInt(request.getParameter("id"));
   String name = request.getParameter("name");
@@ -54,6 +62,14 @@ public class CategoryController {
   response.sendRedirect("list.do");
  }
 
+ /**
+  * 科室分类删除
+  *
+  * @param request
+  * @param response
+  * @throws ServletException
+  * @throws IOException
+  */
  public void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
   int id = Integer.parseInt(request.getParameter("id"));
   categoryService.deleteCategory(id);
@@ -64,6 +80,14 @@ public class CategoryController {
   request.getRequestDispatcher("../category_add.jsp").forward(request, response);
  }
 
+ /**
+  * 科室分类增加
+  *
+  * @param request
+  * @param response
+  * @throws ServletException
+  * @throws IOException
+  */
  public void add(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
   String name = request.getParameter("name");
   Category category = new Category();

@@ -28,18 +28,19 @@ public class DeptController {
  private CategoryService categoryService;
 
 
+ /**
+  * 科室列表
+  *
+  * @param request
+  * @param response
+  * @throws ServletException
+  * @throws IOException
+  */
  public void list(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
   //分类id
-  int cid = 0;
+
   List<Category> categoryList = categoryService.findAll();
-  try {
-   cid = Integer.parseInt(request.getParameter("cid"));
-  } catch (Exception e) {
-   e.printStackTrace();
-  }
-  if (cid == 0) {
-   cid = categoryList.get(0).getId();
-  }
+  int cid = Integer.parseInt(request.getParameter("cid"));
   Category category = categoryService.findById(cid);
   List<Dept> deptList = deptService.findAllByCid(cid);
   request.setAttribute("COBJ", category);
@@ -56,6 +57,14 @@ public class DeptController {
 
  }
 
+ /**
+  * 科室增加
+  *
+  * @param request
+  * @param response
+  * @throws ServletException
+  * @throws IOException
+  */
  public void add(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
   String name = request.getParameter("name");
   int cid = Integer.parseInt(request.getParameter("categoryId"));
@@ -63,7 +72,7 @@ public class DeptController {
   dept.setCategoryId(cid);
   dept.setName(name);
   deptService.insertDept(dept);
-  response.sendRedirect("list.do");
+  response.sendRedirect("list.do?cid=" + cid);
  }
 
  public void toEdit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -75,6 +84,14 @@ public class DeptController {
   request.getRequestDispatcher("../dept_edit.jsp").forward(request, response);
  }
 
+ /**
+  * 科室编辑
+  *
+  * @param request
+  * @param response
+  * @throws ServletException
+  * @throws IOException
+  */
  public void edit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
   int id = Integer.parseInt(request.getParameter("id"));
   String name = request.getParameter("name");
@@ -83,12 +100,21 @@ public class DeptController {
   dept.setName(name);
   dept.setCategoryId(categoryId);
   deptService.updateDept(dept);
-  response.sendRedirect("list.do");
+  response.sendRedirect("list.do?cid=" + categoryId);
  }
 
+ /**
+  * 科室删除
+  *
+  * @param request
+  * @param response
+  * @throws ServletException
+  * @throws IOException
+  */
  public void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
   int id = Integer.parseInt(request.getParameter("id"));
+  int cid = Integer.parseInt(request.getParameter("cid"));
   deptService.deleteDept(id);
-  response.sendRedirect("list.do");
+  response.sendRedirect("list.do?cid=" + cid);
  }
 }
