@@ -25,6 +25,9 @@
         <nav>
             <a href="list.do">分类</a>
         </nav>
+        <nav>
+            <a href="../logout.do">退出登录</a>
+        </nav>
 
     </div>
 </header>

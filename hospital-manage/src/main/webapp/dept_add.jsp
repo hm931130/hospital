@@ -38,8 +38,10 @@
         <div class="form-group">
             <label for="categoryId" class="col-sm-2 control-label">分类 ：</label>
             <select id="categoryId" name="categoryId" class="col-sm-2 form-control" style="width: auto">
-                <option>内科</option>
-                <option>外科</option>
+
+                <c:forEach items="${CLIST}" var="category">
+                    <option value="${category.id}">${category.name}</option>
+                </c:forEach>
             </select>
         </div>
         <div class="form-group">

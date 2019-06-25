@@ -14,7 +14,7 @@
         <property name="url"
                   value="jdbc:mysql://localhost:3306/hospital?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false"/>
         <property name="username" value="root"/>
-        <property name="password" value="root123"/>
+        <property name="password" value="123456"/>
 
     </bean>
 
@@ -39,9 +39,7 @@
     <!-- 通知 txadvice-->
     <tx:advice id="txAdvice" transaction-manager="transactionManager">
         <tx:attributes>
-            <tx:method name="get*" read-only="true"/>
             <tx:method name="find*" read-only="true"/>
-            <tx:method name="search*" read-only="true"/>
             <tx:method name="*" propagation="REQUIRED"/>
         </tx:attributes>
     </tx:advice>

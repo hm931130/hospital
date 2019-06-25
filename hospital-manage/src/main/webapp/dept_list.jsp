@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -16,12 +17,12 @@
         <c:forEach items="${CLIST}" var="category">
 
             <nav>
-                <a href="dept/list.do?id=${category.id}">${category.name}</a>
+                <a href="list.do?cid=${category.id}">${category.name}</a>
             </nav>
 
         </c:forEach>
         <nav>
-            <a href="category/list.do">分类</a>
+            <a href="../category/list.do">分类</a>
         </nav>
 
     </div>
@@ -50,11 +51,11 @@
                 <tr>
                     <td>${dept.name}</td>
                     <td>${COBJ.name}</td>
-                    <td>${dept.createTime}</td>
-                    <td>${dept.updateTime}</td>
+                    <td><fmt:formatDate value="${dept.createTime}" pattern="yyyy-MM-dd hh:mm"/></td>
+                    <td><fmt:formatDate value="${dept.updateTime}" pattern="yyyy-MM-dd hh:mm"/></td>
                     <td>
-                        <a href="">修改</a>&nbsp;&nbsp;
-                        <a href="">删除</a>
+                        <a href="toEdit.do?id=${dept.id}">修改</a>&nbsp;&nbsp;
+                        <a href="delete.do?id=${dept.id}">删除</a>
 
                     </td>
                 </tr>
@@ -66,7 +67,7 @@
 <section class="page">
     <div class="container">
         <div id="fatie">
-            <a href="addDept.do">
+            <a href="toAdd.do">
                 <button>新建</button>
             </a>
         </div>
